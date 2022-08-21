@@ -1,0 +1,12 @@
+Host *
+  User vagrant
+  IdentityFile ~/techmaster/devops/ssh-keys/devops.pem
+
+Host web01
+  HostName 192.168.33.11
+
+Host web02
+  HostName 192.168.33.12
+
+Host db01
+  HostName 192.168.33.13
