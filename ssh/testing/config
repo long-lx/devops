@@ -1,0 +1,15 @@
+Host *
+  User ubuntu
+  IdentityFile ~/techmaster/devops/ssh/keys/devops.pem
+
+Host web-za-01
+  HostName 46.137.232.38
+
+Host web-za-02
+  HostName 52.221.255.105
+
+Host web-zb-01
+  HostName 18.138.252.178
+
+Host web-zb-02
+  HostName 13.215.154.238
