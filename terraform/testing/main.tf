@@ -11,6 +11,6 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-southeast-1" # Singapore region
+  region  = "ap-southeast-1" # Singapore region
   profile = "default"
 }

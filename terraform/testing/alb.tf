@@ -25,21 +25,21 @@ module "alb" {
   security_groups = [module.alb_security_group.security_group_id]
 
   ## Attach ec2 instances from ec2.tf to alb target group
-    
-    target_groups = [
-      {
-        name_prefix      = "alb-"
-        backend_protocol = "HTTP"
-        backend_port     = 80
-        target_type      = "instance"
-        targets = {
-          web-za-01 = {
-            target_id = element(values(module.ec2_za)[*].id, 0)
-          }
-          web-zb-01 = {
-            target_id = element(values(module.ec2_zb)[*].id, 0)
-            port      = 80
-          }
+
+  target_groups = [
+    {
+      name_prefix      = "alb-"
+      backend_protocol = "HTTP"
+      backend_port     = 80
+      target_type      = "instance"
+      targets = {
+        web-za-01 = {
+          target_id = element(values(module.ec2_za)[*].id, 0)
+        }
+        web-zb-01 = {
+          target_id = element(values(module.ec2_zb)[*].id, 0)
+          port      = 80
+        }
         #   web-za-02 = {
         #     target_id = element(values(module.ec2_za)[*].id, 1)
         #   }
@@ -47,15 +47,15 @@ module "alb" {
         #     target_id = element(values(module.ec2_zb)[*].id, 1)
         #     port      = 80
         #   }
-        }
       }
-    ]
+    }
+  ]
 
-    http_tcp_listeners = [
-      {
-        port               = 80
-        protocol           = "HTTP"
-        target_group_index = 0
-      }
-    ]
+  http_tcp_listeners = [
+    {
+      port               = 80
+      protocol           = "HTTP"
+      target_group_index = 0
+    }
+  ]
 }
