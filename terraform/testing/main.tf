@@ -14,3 +14,15 @@ provider "aws" {
   region  = "ap-southeast-1" # Singapore region
   profile = "default"
 }
+
+# Configure terraform remote state with S3 bucket and locking with DynamoDB table
+
+terraform {
+  backend "s3" {
+    bucket         = "vn-techmaster-devops-0011-terraform-state"
+    key            = "testing/terraform.tfstate"
+    region         = "ap-southeast-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state-lock"
+  }
+}
